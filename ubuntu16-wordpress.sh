@@ -6,7 +6,7 @@ apt-get install -y php7.0 libapache2-mod-php7.0
 apt-get install unzip
 apt-cache search php7.0
 apt-get install -y php7.0-gd 
-apt-get install -y php7.0-mysql php7.0-curl php7.0-intl php-pear php7.0-imap php7.0-zip php7.0-mcrypt php7.0-pspell php7.0-recode  php7.0-sqlite3 php7.0-tidy  php7.0-xsl   php-imagick
+apt-get install -y php7.0-mysql php7.0-curl php7.0-intl php-pear php7.0-imap php7.0-zip php7.0-mcrypt php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xsl php-imagick
 apt-get install -y mysql-server mysql-client   
 apt-get -y install phpmyadmin   
 cd /var/www/html/
