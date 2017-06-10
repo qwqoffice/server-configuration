@@ -7,7 +7,7 @@ rq=`date +%Y%m%d`
 mysqldump -uroot -p123456 wordpressdb > /mysqlbackup/backup/mysql$rq.sql
 
 find /mysqlbackup/backup/ -name "*" -type f -mtime +3 -exec rm {} \;
-zip -q -r /mysqlbackup/backup/$rq.zip  /var/www/html/
+zip -q --symlinks -r /mysqlbackup/backup/$rq.zip  /var/www/html/
 end
 chmod 777 /mysqlbackup/mysqlbackup.sh
 cd /mysqlbackup
