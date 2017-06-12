@@ -1,0 +1,30 @@
+下载4.9内核
+wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9-rc8/linux-image-4.9.0-040900rc8-generic_4.9.0-040900rc8.201612051443_amd64.deb
+
+安装内核
+dpkg -i linux-image-4.9.0*.deb
+
+查看所有内核
+dpkg -l|grep linux-image
+
+删除旧内核（可选）
+#sudo apt-get remove linux-image-[Tab补全]
+
+更新 grub 系统引导文件，重启
+update-grub
+reboot
+
+查看当前内核
+uname -a
+
+开启BBR
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+
+保存生效
+sysctl -p
+
+sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
+
+lsmod | grep bbr
