@@ -1,0 +1,41 @@
+apt-get update
+apt-get install python-pip
+pip install shadowsocks
+
+#libsodium - chacha20加密
+wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz
+tar zxf LATEST.tar.gz
+cd libsodium*
+./configure
+make && make install
+# 修复关联
+echo /usr/local/lib > /etc/ld.so.conf.d/usr_local_lib.conf
+ldconfig
+
+mkdir -p /etc/shadowsocks/
+mkdir -p /var/log/shadowsocks/
+vim /etc/shadowsocks/config.json
+
+{
+"port_password":{
+"9000":"password",
+"9001":"password",
+"9002":"password",
+"9003":"password",
+"9004":"password",
+"9005":"password",
+"9006":"password",
+"9007":"password",
+"9008":"password",
+"9009":"password",
+"9010":"password"
+},
+"timeout":300,
+"method":"chacha20"
+}
+
+#开机启动
+echo 'ssserver -c /etc/shadowsocks/config.json -d start -v --log-file /var/log/shadowsocks/ss.log --user nobody' >> /etc/rc.local
+
+pkill Ali*
+pkill ali*
