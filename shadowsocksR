@@ -1,0 +1,21 @@
+apt-get update
+apt-get install git -y
+#安装libsodium
+#apt-get install libsodium-dev
+git clone https://github.com/Ssrbackup/shadowsocksr.git
+cd shadowsocksr
+bash initcfg.sh
+vim user-config.json
+cd shadowsocks
+chmod +x *.sh
+#后台运行：
+#./logrun.sh
+#停止服务：
+#./stop.sh
+#查看日志：
+#./tail.sh
+
+#开机运行
+chmod +x /etc/rc.local
+vim /etc/rc.local
+/bin/bash /root/shadowsocksr/shadowsocks/logrun.sh
