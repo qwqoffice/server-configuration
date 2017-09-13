@@ -1,0 +1,11 @@
+#Let's Encrypt
+apt-get update
+apt-get install software-properties-common
+add-apt-repository ppa:certbot/certbot
+apt-get update
+apt-get install python-certbot-apache
+
+certbot --apache
+
+vim /etc/crontab
+30 3 10 */2 * root certbot renew >/dev/null 2>&1
