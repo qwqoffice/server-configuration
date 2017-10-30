@@ -8,3 +8,4 @@ apt-get install python-certbot-apache
 certbot --apache
 
 echo '30 3 10 */2 * root certbot renew >/dev/null 2>&1' >> /etc/crontab
+/etc/init.d/cron restart
