@@ -1,0 +1,41 @@
+pkill ali*
+pkill Ali*
+
+wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/shadowsocks_install/master/shadowsocksR.sh && bash shadowsocksR.sh
+
+vim /etc/shadowsocks.json
+
+{
+    "server": "0.0.0.0",
+    "server_ipv6": "::",
+    "local_address": "127.0.0.1",
+    "local_port": 1081,
+    "port_password":{
+    "9000":"password",
+    "9001":"password",
+    "9002":"password",
+    "9003":"password",
+    "9004":"password",
+    "9005":"password",
+    "9006":"password",
+    "9007":"password",
+    "9008":"password",
+    "9009":"password",
+    "9010":"password"
+    },
+    "timeout": 120,
+    "udp_timeout": 60,
+    "method": "chacha20",
+    "protocol": "auth_sha1_v4_compatible",
+    "protocol_param": "",
+    "obfs": "tls1.2_ticket_auth_compatible",
+    "obfs_param": "",
+    "dns_ipv6": false,
+    "connect_verbose_info": 1,
+    "redirect": "",
+    "fast_open": false,
+    "workers": 1
+
+}
+
+/etc/init.d/shadowsocks restart
